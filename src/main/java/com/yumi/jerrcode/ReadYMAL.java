@@ -6,17 +6,22 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ReadYMAL {
-    public void test() throws FileNotFoundException {
+    public void test() throws FileNotFoundException, IllegalAccessException {
         Integer t = 1;
         System.out.println(t);
         System.out.println(ErrCode.SUCCESS);
-        System.out.println(ErrCode.SUCCESS);
+        for (Field field : ErrCode.class.getDeclaredFields()) {
+            System.out.println(field.getName());
+            System.out.println(field.get(field.getName()));
+        }
+        ErrCode
         System.out.println(ErrCode.SUCCESS.getCode());
         System.out.println(ErrCode.SUCCESS.format("ggg"));
         String path = ReadYMAL.class.getResource("/ymal").getPath();

@@ -3,7 +3,7 @@ package com.yumi.jerrcode;
 import lombok.Data;
 
 @Data
-public class Code<T> {
+public class Code  {
     private final Integer code;
     private final String message;
 
